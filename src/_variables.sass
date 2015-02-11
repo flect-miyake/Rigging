@@ -1,6 +1,6 @@
 /* variables for Rigging */
 
-/* Colors */
+// Colors
 
 // Basic colors
 
@@ -27,52 +27,60 @@ $color-warning: $yellow
 $color-danger: $red
 
 
-/* Font */
+// Font
 
 $font-family-sans-serif: "Helvetica Neue", Helvetica, "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif
 $font-family-serif: Georgia, "Times New Roman", Times, serif
 $font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace
 
 
-/* Common */
+// Common Variables
+
+$common-font-size-raw: 12
+$common-line-height-rate: 1.5
+$common-margin-raw: 10
 
 $common-text-color: $gray-darker
 $common-link-color: $color-primary
-$common-font-size-raw: 12
-$common-line-height-rate: 1.5
-$common-margin: 10px
+$common-font-family: $font-family-sans-serif
+$common-font-size: $common-font-size-raw+px
+$common-font-weight: normal
+$common-line-height: $common-line-height-rate
+$common-margin: $common-margin-raw+px
 $common-border-radius: 4px
 
 
-/* Base */
+// Base
 
 $base-background-color: $gray-lighter
 $base-text-color: $common-text-color
-$base-font-size: $common-font-size-raw+px
-$base-line-height: $common-line-height-rate
-$base-font-family: $font-family-sans-seif
+$base-font-family: $common-font-family
+$base-font-size: $common-font-size
+$base-font-weight: $common-font-weight
+$base-line-height: $common-line-height
 
 
-/* Typography */
+// Typography
 
 // Heading
-$typo-headding-line-height: 1.6
-$typo-heading-font-family: $base-font-family
-$typo-h1-font-size: ceil($common-font-size-raw * 2.4)+px
-$typo-h2-font-size: ceil($common-font-size-raw * 2.0)+px
-$typo-h3-font-size: ceil($common-font-size-raw * 1.6)+px
-$typo-h4-font-size: ceil($common-font-size-raw * 1.2)+px
+$typo-heading-font-family: $common-font-family
+$typo-heading-font-wegiht: $common-font-weight
+$typo-heading-line-height: ceil($common-line-height * 1.2)
+$typo-h1-font-size: ceil($common-font-size-raw * 1.6)+px
+$typo-h2-font-size: ceil($common-font-size-raw * 1.4)+px
+$typo-h3-font-size: ceil($common-font-size-raw * 1.2)+px
+$typo-h4-font-size: ceil($common-font-size-raw * 1.1)+px
 $typo-h5-font-size: ceil($common-font-size-raw * 1.0)+px
-$typo-h6-font-size: ceil($common-font-size-raw * 0.8)+px
+$typo-h6-font-size: ceil($common-font-size-raw * 0.9)+px
 
 // Link
 $typo-link-color: $common-link-color
-$typo-link-hover-color: darken($typo-link-color, 10%)
+$typo-link-active-color: darken($typo-link-color, 10%)
 $typo-link-decoration: none
-$typo-link-hover-decoration: none
+$typo-link-active-decoration: none
 
 // Static
-$typo-static-font-size-xl: ceil($common-font-size-raw * 0.6)+px
+$typo-static-font-size-xs: ceil($common-font-size-raw * 0.6)+px
 $typo-static-font-size-s: ceil($common-font-size-raw * 0.8)+px
 $typo-static-font-size-m: ceil($common-font-size-raw * 1.0)+px
 $typo-static-font-size-l: ceil($common-font-size-raw * 1.2)+px
@@ -84,28 +92,45 @@ $typo-static-line-height-l: ceil($common-font-size-raw * 1.8)+px
 $typo-static-line-height-xl: ceil($common-font-size-raw * 2.4)+px
 
 
-/* Bar */
+// View
+
+$view-background-color: transparent
+
+
+// Grid
+
+$grid-space-raw: $common-margin-raw
+
+// Media Query
+$media-small:  'only screen and (max-width:480px)'
+$media-middle: 'only screen and (min-width:481px) and (max-width:959px)'
+$media-large:  'only screen and (min-width:960px)'
+
+
+// Bar
 
 $bar-background-color: rgba($white, 0.9)
 $bar-text-color: $color-primary
+$bar-title-font-size: 18px
 $bar-link-color: $typo-link-color
-$bar-link-hover-color: $typo-link-hover-color
+$bar-link-active-color: $typo-link-active-color
 $bar-min-height: 44px
 
 
-/* Button */
+// Button
 
 $button-border-radius: $common-border-radius
 
 
-/* Form */
+// Form
+
 $form-border-radius: $common-border-radius
 
 
-/* List */
+// List
 
 $list-background-color: $white
 $list-text-color: $common-text-color
 $list-outer-border-color: $gray-light
 $list-inner-border-color: $gray-lighter
-$list-selected-background-color: $gray-light
+$list-active-background-color: $gray-light
