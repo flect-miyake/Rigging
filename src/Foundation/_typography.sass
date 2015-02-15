@@ -1,58 +1,17 @@
 // Heading
-
-@mixin heading($font-size)
-  margin: $common-margin-raw+px 0 ($common-margin-raw * 0.5)+px 0
-  font-family: $typo-heading-font-family
-  font-size: $font-size
-  line-height: $typo-heading-line-height
-
 h1, .h1
-  +heading($typo-h1-font-size)
+  +heading(ceil($font-size-raw*2.4)+px, $margin)
 h2, .h2
-  +heading($typo-h2-font-size)
+  +heading(ceil($font-size-raw*2.0)+px, $margin)
 h3, .h3
-  +heading($typo-h3-font-size)
+  +heading(ceil($font-size-raw*1.6)+px, $margin)
 h4, .h4
-  +heading($typo-h4-font-size)
+  +heading(ceil($font-size-raw*1.2)+px, $margin)
 h5, .h5
-  +heading($typo-h5-font-size)
+  +heading(ceil($font-size-raw*1.0)+px, $margin)
 h6, .h6
-  +heading($typo-h6-font-size)
-
+  +heading(ceil($font-size-raw*0.8)+px, $margin)
 
 // Link
-
 a, .link
-  color: $typo-link-color
-  text-decoration: $typo-link-decoration
-
-  &:hover,
-  &:focus,
-  &.active
-    color: $typo-link-active-color
-    text-decoration: $typo-link-active-decoration
-
-
-// Static
-
-.static-font-size-xs
-  font-size: $typo-static-font-size-xs !important
-.static-font-size-s
-  font-size: $typo-static-font-size-s !important
-.static-font-size-m
-  font-size: $typo-static-font-size-m !important
-.static-font-size-l
-  font-size: $typo-static-font-size-l !important
-.static-font-size-xl
-  font-size: $typo-static-font-size-xl !important
-
-.static-line-height-xs
-  line-height: $typo-static-line-height-xs !important
-.static-line-height-s
-  line-height: $typo-static-line-height-s !important
-.static-line-height-m
-  line-height: $typo-static-line-height-m !important
-.static-line-height-l
-  line-height: $typo-static-line-height-l !important
-.static-line-height-xl
-  line-height: $typo-static-line-height-xl !important
+  +link($link-color)
