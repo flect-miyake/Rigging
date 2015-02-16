@@ -1,26 +1,7 @@
 .container
-  display: block
-  position: relative
-  width: 100%
-  padding: 0
-  margin: 0
-
-@media #{$media-small}
-  .container
-    width: 100%
-    padding: 0
-@media #{$media-middle}
-  .container
-    width: 100%
-    padding: 0 20px
-@media #{$media-large}
-  .container
-    width: 80%
-    margin: 0 auto
+  +container($media-small, $media-middle, $media-large)
 
 .row
-  +row($margin-raw)
-  .col
-    +col(12, $margin-raw)
+  +grid-row(12, 10)
   &.row-wrap
     flex-wrap: wrap

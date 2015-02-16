@@ -1,6 +1,9 @@
 .button
-  +button-shape(ceil($font-size-raw*1.1)+px, $border-radius)
+  +button-shape(ceil($font-size-raw * 1.1)+px, 4px 15px 4px 15px, 4px)
   +button-color($gray, $white)
+  &.button-block
+    display: block
+    width: 100%
   &.button-primary
     +button-color($color-primary, $white)
     &.button-ghost

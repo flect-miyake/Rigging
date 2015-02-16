@@ -1,29 +1,14 @@
-// Default variables
-
-// Button
-$button-padding-top: 4px
-$button-padding-right: 20px
-$button-padding-bottom: 4px
-$button-padding-left: 20px
-
-
-// Form
-$form-padding-top: 4px
-$form-padding-right: 10px
-$form-padding-bottom: 4px
-$form-padding-left: 10px
-
-
 // Typography
 
 // Heading
-@mixin heading($font-size: 16px, $margin: 10px)
+@mixin heading($font-size: 16px, $margin: 10px 0 5px 0)
   display: block
   position: relative
   padding: 0
-  margin: $margin 0 ($margin / 2) 0
+  margin: $margin
   font-size: $font-size
   font-weight: normal
+  font-style: normal
   line-height: 1.6
 
 // Link
@@ -31,66 +16,75 @@ $form-padding-left: 10px
   color: $color
   text-decoration: none
   &:hover,
+    color: darken($color, 10%)
   &:focus,
   &:active,
   &.active
     color: rgba($color, 0.5)
-    text-decoration: none
-
-// Static
-@mixin static-font-size($font-size: 14px)
-  font-size: $font-size !important
-@mixin static-line-height($line-height: 22px)
-  line-height: $line-height !important
+  &.disabled
+    color: lighten($color, 10%)
 
 
 // Grid
 
-@mixin row($space-raw: 10)
+@mixin container($small, $middle, $large)
+  display: block
+  position: relative
+  width: 100%
+  padding: 0
+  margin: 0
+
+  @media #{$small}
+    &
+      width: 100%
+      padding: 0
+      margin: 0
+  @media #{$middle}
+    &
+      width: 100%
+      padding: 0 20px
+      margin: 0
+  @media #{$large}
+    &
+      width: 80%
+      padding: 0
+      margin: 0 auto
+
+@mixin grid-row($divide: 12, $space-raw: 10)
   display: flex
   position: relative
   width: 100%
   padding: ($space-raw / 2)+px
   margin: 0
-
   & + &
     padding-top: 0
     margin-top: (($space-raw / 2) * -1)+px
-
-@mixin col($divide: 12, $space-raw: 10)
-  flex: 1 1 0
-  width: 100%
-  padding: ($space-raw / 2)+px
-  overflow: hidden
-
-  @for $i from 1 through $divide
-    &.col-#{$i}
-      flex: 0 0 (100 / $divide * $i)+%
-      max-width: (100 / $divide * $i)+%
-    &.col-offset-#{$i}
-      margin-left: (100 / $divide * $i)+%
+  .grid
+    flex 1 1 0
+    width: 100%
+    padding: ($space-raw / 2)+px
+    overflow: hidden
+    @for $i from 1 through $divide
+      &.grid-#{$i}
+        flex: 0 0 (100 / $divide * $i)+%
+        max-width: (100 / $divide * $i)+%
+      &.grid-offset-#{$i}
+        margin-left: (100 / $divide * $i)+%
 
 
 // Button
 
-@mixin button-shape($font-size: 16px, $border-radius: 4px)
+@mixin button-shape($font-size: 16px, $padding: 4px 15px 4px 15px, $border-radius: 4px)
   display: inline-block
   position: relative
-  padding-top: $button-padding-top
-  padding-right: $button-padding-right
-  padding-bottom: $button-padding-bottom
-  padding-left: $button-padding-left
-  border-radius: $border-radius
+  padding: $padding
   margin: 0
+  border-radius: $border-radius
   font-size: $font-size
   line-height: 1.5
-  text-align: center
   cursor: pointer
   &.disabled
     cursor: default
-  &.block
-    display: block
-    width: 100%
 
 @mixin button-color($background-color: #999, $color: #fff)
   background: $background-color
@@ -98,13 +92,13 @@ $form-padding-left: 10px
   border-width: 1px
   border-style: solid
   border-color: transparent
-  &:hover,
+  outline: none
+  &:hover
     background: darken($background-color, 10%)
   &:focus,
   &:active,
   &.active
     background: rgba($background-color, 0.5)
-    color: rgba($color, 0.5)
   &.disabled
     background: lighten($background-color, 10%)
     color: rgba($color, 0.5)
@@ -115,7 +109,8 @@ $form-padding-left: 10px
   border-width: 1px
   border-style: solid
   border-color: $color
-  &:hover,
+  outline: none
+  &:hover
     color: darken($color, 10%)
     border-color: darken($color, 10%)
   &:focus,
@@ -125,76 +120,35 @@ $form-padding-left: 10px
     border-color: rgba($color, 0.5)
   &.disabled
     color: lighten($color, 10%)
-    border-color: lighten($color, 10%)
+    border-color: lighten($color, 0.5)
 
 
 // Form
 
-@mixin input-shape($font-size: 16px, $border-radius: 4px)
+@mixin input-shape($font-size: 16px, $padding: 4px 10px 4px 10px, $border-radius: 4px)
   display: inline-block
   position: relative
-  padding-top: $form-padding-top
-  padding-right: $form-padding-right
-  padding-bottom: $form-padding-bottom
-  padding-left: $form-padding-left
-  border-radius: $border-radius
+  padding: $padding
   margin: 0
+  border-radius: $border-radius
   font-size: $font-size
   line-height: 1.5
-  text-align: left
-  cursor: pointer
   &.disabled
     cursor: default
-  &.block
-    display: block
-    width: 100%
 
-@mixin input-color($background-color: #999, $color: #333)
+@mixin input-color($background-color: #aaa, $color: #333)
   background: $background-color
   color: $color
   border-width: 1px
   border-style: solid
   border-color: $background-color
+  outline: none
   &:hover,
   &:focus,
   &:active,
   &.active
-    border-color: darken($background-color, 10px)
-    outline: none
+    border-color: darken($background-color, 10%)
   &.disabled
     background: lighten($background-color, 10%)
-    color: rgba($color, 0.5)
+    color: lighten($color, 10%)
     border-color: lighten($background-color, 10%)
-
-
-// Bar
-@mixin bar-shape($bar-height)
-  display: block
-  position: relative
-  width: 100%
-  height: $bar-height
-  min-height: $bar-height
-  &.fixed-top
-    position: fixed
-    top: 0
-    left: 0
-  &.fixed-bottom
-    position: fixed
-    bottom: 0
-    left: 0
-
-@mixin bar-color($background-color, $color)
-  background: rgba($background-color, 0.9)
-  color: $color
-  box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.1)
-  a
-    color: $color
-    text-decoration: none
-    &:hover
-      color: darken($color, 10%)
-    &:focus,
-    &:active,
-    &.active
-      color: rgba($color, 0.5)
-  &.fixed-bottom
-    box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.1)
