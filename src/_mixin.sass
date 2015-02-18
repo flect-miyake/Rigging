@@ -42,9 +42,9 @@
       margin: 0
   @media #{$middle}
     &
-      width: 100%
-      padding: 0 20px
-      margin: 0
+      width: 90%
+      padding: 0
+      margin: 0 auto
   @media #{$large}
     &
       width: 80%
@@ -75,12 +75,12 @@
 
 // Button
 
-@mixin button-shape($font-size: 16px, $padding: 4px 15px 4px 15px, $border-radius: 4px)
+@mixin button-shape($font-size: 16px, $padding: 4px 16px 4px 16px, $radius: 4px)
   display: inline-block
   position: relative
   padding: $padding
   margin: 0
-  border-radius: $border-radius
+  border-radius: $radius
   font-size: $font-size
   line-height: 1.5
   cursor: pointer
@@ -126,12 +126,12 @@
 
 // Form
 
-@mixin input-shape($font-size: 16px, $padding: 4px 10px 4px 10px, $border-radius: 4px)
+@mixin input-shape($font-size: 16px, $padding: 4px 8px 4px 8px, $radius: 4px)
   display: inline-block
   position: relative
   padding: $padding
   margin: 0
-  border-radius: $border-radius
+  border-radius: $radius
   font-size: $font-size
   line-height: 1.5
   &.disabled
@@ -154,6 +154,42 @@
     color: lighten($color, 10%)
     border-color: lighten($background-color, 10%)
 
+@mixin placeholder-color($color)
+  &:-moz-placeholder
+    color:$color
+  &::-webkit-input-placeholder
+    color:$color
+
+@mixin select-shape($font-size: 16px, $padding: 4 8px 4px 8px, $radius: 4px)
+  -moz-appearance: none
+  -webkit-appearance: none
+  appearance: none
+  display: inline-block
+  position: relative
+  padding: $padding
+  margin: 0
+  font-size: $font-size
+  vertical-align: middle
+
+@mixin select-color($background-color: #aaa, $color: #333)
+  -moz-appearance: none
+  -webkit-appearance: none
+  appearance: none
+  background: $background-color
+  color: $color
+  border-width: 1px
+  border-style: solid
+  border-color: $background-color
+  outline: none
+  &:hover,
+  &:focus,
+  &:active,
+  &.active
+    border-color: darken($background-color, 10%)
+  &.disabled
+    background: lighten($background-color, 10%)
+    color: lighten($color, 10%)
+    border-color: lighten($background-color, 10%)
 
 // Utilities
 
@@ -163,3 +199,18 @@
     content: ""
     clear: both
     display: block
+
+
+// Divided content
+@mixin divided-contents($space: 0)
+  > .content
+    display: inline-block
+    position: absolute
+    top: 0
+    z-index: 2
+    &.left
+      margin-left: $space
+      left: 0
+    &.right
+      margin-right: $space
+      right: 0

@@ -1,7 +1,10 @@
-.container
-  +container($media-small, $media-middle, $media-large)
+/** Grid **/
 
-.row
-  +grid-row(12, 10)
-  &.row-wrap
-    flex-wrap: wrap
+.container
+  +container($media-query-s, $media-query-m, $media-query-l)
+
+.grid-row
+  +grid-row(12, $space-raw)
+
+.grid-row-condensed
+  +grid-row(12, 0)

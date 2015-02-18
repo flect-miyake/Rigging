@@ -1,7 +1,16 @@
-.input
-  +input-shape(ceil($font-size-raw * 1.1)+px, 4px 10px 4px 10px, 4px)
-  +input-color($gray-light, $text-color)
+/** Form **/
 
-  &.input-block
+.input
+  +input-shape(ceil($font-size-raw * 1.1)+px, 4px 8px 4px 8px, $radius)
+  +input-color($gray-light, $gray-darker)
+  +placeholder-color($gray)
+  &.block
+    display: block
+    width: 100%
+
+.select
+  +select-shape(ceil($font-size-raw * 1.1)+px, 4px 8px 4px 8px, $radius)
+  +select-color($gray-light, $gray-darker)
+  &.block
     display: block
     width: 100%
