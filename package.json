@@ -1,6 +1,6 @@
 {
   "name": "Rigging",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Rigging is CSS Components for create Application UI rapidly",
   "main": "index.js",
   "scripts": {

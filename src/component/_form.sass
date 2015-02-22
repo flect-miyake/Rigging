@@ -1,16 +1,19 @@
 /** Form **/
 
+.label
+  +label($font-size, 5px 0 5px 0, 0 $space 0 $space)
+
 .input
-  +input-shape(ceil($font-size-raw)+px, 4px 8px 4px 8px, $radius)
-  +input-color($gray-light, $gray-darker)
-  +placeholder-color($gray)
+  +input-shape($font-size, 4px 8px 4px 8px, $radius)
+  +input-color(transparent, $gray-darker)
+  +placeholder-color($gray-light)
   &.block
     display: block
     width: 100%
 
 .select
-  +select-shape(ceil($font-size-raw)+px, 4px 8px 4px 8px, $radius)
-  +select-color($gray-light, $gray-darker)
+  +select-shape($font-size, 4px 8px 4px 8px, $radius)
+  +select-color(transparent, $gray-darker)
   &.block
     display: block
     width: 100%
