@@ -1,8 +1,10 @@
 /** Button **/
 
 .button
-  +button-shape(ceil($font-size-raw * 1.1)+px, 4px 16px 4px 16px, $radius)
+  +button-shape(ceil($font-size-raw)+px, 4px 16px 4px 16px, $radius)
   +button-color($gray, $white)
+  &.button-ghost
+    +button-ghost-color($gray)
 
   &.button-primary
     +button-color($color-primary, $white)
@@ -27,7 +29,7 @@
   &.button-danger
     +button-color($color-danger, $white)
     &.button-ghost
-      +button-color($color-danger)
+      +button-ghost-color($color-danger)
 
   &.block
     display: block

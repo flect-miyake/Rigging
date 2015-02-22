@@ -1,15 +1,6 @@
-// Typography
+// Rigging of Mixin //
 
-// Heading
-@mixin heading($font-size: 16px, $margin: 10px 0 5px 0)
-  display: block
-  position: relative
-  padding: 0
-  margin: $margin
-  font-size: $font-size
-  font-weight: normal
-  font-style: normal
-  line-height: 1.6
+// Typography
 
 // Link
 @mixin link($color: blue)
@@ -24,6 +15,28 @@
     color: rgba($color, 0.5)
   &.disabled
     color: lighten($color, 10%)
+
+// Heading
+@mixin heading($font-size: 16px, $font-weight: 300, $margin: 20px 0 10px 0)
+  display: block
+  padding: 0
+  margin: $margin
+  font-size: $font-size
+  font-weight: $font-weight
+  font-style: normal
+  line-height: 1.6
+
+
+// View
+
+@mixin view($width: 100%, $height: 100%, $backgrond-color: transparent, $color: #333)
+  display: block
+  position: relative
+  background: $backgrond-color
+  color: $color
+  width: $width
+  height: $height
+  overflow: scroll
 
 
 // Grid
@@ -51,7 +64,7 @@
       padding: 0
       margin: 0 auto
 
-@mixin grid-row($divide: 12, $space-raw: 10)
+@mixin grid-row($divide: 12, $space-raw: 10, $grid-name: grid)
   display: flex
   position: relative
   width: 100%
@@ -60,24 +73,23 @@
   & + &
     padding-top: 0
     margin-top: (($space-raw / 2) * -1)+px
-  .grid
+  .#{$grid-name}
     flex 1 1 0
     width: 100%
     padding: ($space-raw / 2)+px
     overflow: hidden
     @for $i from 1 through $divide
-      &.grid-#{$i}
+      &.#{$grid-name}-#{$i}
         flex: 0 0 (100 / $divide * $i)+%
         max-width: (100 / $divide * $i)+%
-      &.grid-offset-#{$i}
+      &.#{$grid-name}-offset-#{$i}
         margin-left: (100 / $divide * $i)+%
 
 
 // Button
 
-@mixin button-shape($font-size: 16px, $padding: 4px 16px 4px 16px, $radius: 4px)
+@mixin button-shape($font-size: 14px, $padding: 4px 16px 4px 16px, $radius: 4px)
   display: inline-block
-  position: relative
   padding: $padding
   margin: 0
   border-radius: $radius
@@ -101,7 +113,7 @@
   &.active
     background: rgba($background-color, 0.5)
   &.disabled
-    background: lighten($background-color, 10%)
+    background: lighten($background-color, 20%)
     color: rgba($color, 0.5)
 
 @mixin button-ghost-color($color: #999)
@@ -120,13 +132,19 @@
     color: rgba($color, 0.5)
     border-color: rgba($color, 0.5)
   &.disabled
-    color: lighten($color, 10%)
-    border-color: lighten($color, 0.5)
+    color: rgba($color, 0.5)
+    border-color: lighten($color, 20%)
 
 
 // Form
 
-@mixin input-shape($font-size: 16px, $padding: 4px 8px 4px 8px, $radius: 4px)
+@mixin label($font-size, $padding: 4px 0px 4px 0)
+  display: inline-block
+  padding: $padding
+  margin: 0
+  line-height: 1.5
+
+@mixin input-shape($font-size: 14px, $padding: 4px 8px 4px 8px, $radius: 4px)
   display: inline-block
   position: relative
   padding: $padding
@@ -160,15 +178,15 @@
   &::-webkit-input-placeholder
     color:$color
 
-@mixin select-shape($font-size: 16px, $padding: 4 8px 4px 8px, $radius: 4px)
+@mixin select-shape($font-size: 14px, $padding: 4px 8px 4px 8px, $radius: 4px)
   -moz-appearance: none
   -webkit-appearance: none
   appearance: none
   display: inline-block
-  position: relative
   padding: $padding
   margin: 0
   font-size: $font-size
+  line-height: 1.5
   vertical-align: middle
 
 @mixin select-color($background-color: #aaa, $color: #333)
@@ -202,12 +220,12 @@
 
 
 // Divided content
-@mixin divided-contents($space: 0)
-  > .content
+@mixin divided-contents($space: 0, $item-name: item)
+  > .#{$item-name}
     display: inline-block
     position: absolute
     top: 0
-    z-index: 2
+    z-index: 5
     &.left
       margin-left: $space
       left: 0

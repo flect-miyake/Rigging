@@ -5,7 +5,7 @@
   position: relative
   width: 100%
   z-index: 20
-  
+
   > .inner
     display: block
     position: relative
@@ -13,35 +13,48 @@
     color: $white
     width: 100%
     height: 44px
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1)
 
     .title
       display: block
       position: relative
       width: 100%
       height: 44px
-      font-size: ceil($font-size-raw * 1.1)+px
+      padding: 0
+      margin: 0
+      font-size: ceil($font-size-raw * 1.2)+px
+      font-style: $font-style
+      font-weight: $font-weight
       line-height: 44px
       text-align: center
-    .side-contents
+
+    .bar-items
       display: block
       position: absolute
       width: 100%
-      height: 44px
       top: 0
-      line-height: 44px
-      +divided-contents($space)
+      left: 0
+      +divided-contents($space, item)
+      a, link
+        +link($white)
+      .item
+        font-size: 14px
+        line-height: 44px
 
-  &.fixed-top
+  &.fixed
     position: fixed
-    top: 0
-  &.fixed-bottom
-    position: fixed
-    bottom: 0
-    > .inner
-      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1)
+    left: 0
+    &.fixed-top
+      top: 0
+    &.fixed-bottom
+      bottom: 0
+      box-shadow: inset 0 1px 0 rgba(0,0,0,0.1)
 
-.padding-rig-bar-fixed-top
-  padding-top: 64px
-.paddinb-rig-bar-fixed-botom
-  padding-bottom: 64px
+.rig-bar-fixed-margin-top
+  margin-top: 44px
+.rig-bar-fixed-padding-top
+  padding-top: 44px
+.rig-bar-fixed-margin-bottom
+  margin-bottom: 44px
+.rig-bar-fixed-padding-bottom
+  padding-bottom: 44px
