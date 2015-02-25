@@ -1,0 +1,45 @@
+// Grid mixin
+
+@mixin container($small, $middle, $large)
+  display: block
+  position: relative
+  width: 100%
+  padding: 0
+  margin: 0
+
+  @media #{$small}
+    &
+      width: 100%
+      padding: 0
+      margin: 0
+  @media #{$middle}
+    &
+      width: 90%
+      padding: 0
+      margin: 0 auto
+  @media #{$large}
+    &
+      width: 80%
+      padding: 0
+      margin: 0 auto
+
+@mixin grid-row($divide: 12, $space-raw: 10, $grid-name: grid)
+  display: flex
+  position: relative
+  width: 100%
+  padding: ($space-raw / 2)+px
+  margin: 0
+  & + &
+    padding-top: 0
+    margin-top: (($space-raw / 2) * -1)+px
+  .#{$grid-name}
+    flex 1 1 0
+    width: 100%
+    padding: ($space-raw / 2)+px
+    overflow: hidden
+    @for $i from 1 through $divide
+      &.#{$grid-name}-#{$i}
+        flex: 0 0 (100 / $divide * $i)+%
+        max-width: (100 / $divide * $i)+%
+      &.#{$grid-name}-offset-#{$i}
+        margin-left: (100 / $divide * $i)+%

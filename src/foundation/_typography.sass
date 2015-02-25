@@ -1,11 +1,22 @@
-/** Typography **/
+/*
+ * Typography
+ */
+
+@import ../variables
+@import ../mixin/typography
+
 
 /* Link */
 a, .link
-  +link($color-primary)
+  +link-color($color-primary)
   font-weight: $font-weight
+  text-decoration: none
+  cursor: pointer
+  &.disabled
+    cursor: default
 
-/* Text color */
+
+/* Text Colors */
 .text-black
   color: $black
 .text-white
@@ -34,33 +45,31 @@ a, .link
 .text-danger
   color: $color-danger
 
+
 /* Text alignments */
 .text-left
-  text-align: left !important
+  +text-align(left)
 .text-right
-  text-align: right !important
+  +text-align(right)
 .text-center
-  text-align: center !important
+  +text-align(center)
 .text-truncate
-  display: block
-  white-space: nowrap
-  overflow: hidden
-  text-overflow: ellipsis
+  +text-truncate()
 
 
 /* Heading */
 h1, .h1
-  +heading(ceil($font-size-raw * 2.0)+px, $font-weight, 20px 0 10px 0)
+  +heading-style(ceil($font-size-raw * 2.0)+px, $font-weight, 20px 0 10px 0)
 h2, .h2
-  +heading(ceil($font-size-raw * 1.8)+px, $font-weight, 20px 0 10px 0)
+  +heading-style(ceil($font-size-raw * 1.8)+px, $font-weight, 20px 0 10px 0)
 h3, .h3
-  +heading(ceil($font-size-raw * 1.6)+px, $font-weight, 20px 0 10px 0)
+  +heading-style(ceil($font-size-raw * 1.6)+px, $font-weight, 20px 0 10px 0)
 h4, .h4
-  +heading(ceil($font-size-raw * 1.4)+px, $font-weight, 20px 0 10px 0)
+  +heading-style(ceil($font-size-raw * 1.4)+px, $font-weight, 20px 0 10px 0)
 h5, .h5
-  +heading(ceil($font-size-raw * 1.2)+px, $font-weight, 10px 0 5px 0)
+  +heading-style(ceil($font-size-raw * 1.2)+px, $font-weight, 10px 0 5px 0)
 h6, .h6
-  +heading(ceil($font-size-raw * 1.0)+px, $font-weight, 10px 0 5px 0)
+  +heading-style(ceil($font-size-raw * 1.0)+px, $font-weight, 10px 0 5px 0)
 
 
 /* Paragraph */
@@ -92,14 +101,14 @@ em, .em
 blockquote, .blockquote
   display: block
   width: 100%
-  padding: 0 ($space-raw * 2.0)+px
+  padding: 0 ($space-raw * 2)+px
   p
     display: block
     color: $color-primary
   cite
     display: block
-    position: relative
     color: $color-primary
+    font-weight: $font-weight-strong
     text-align: right
 
 /* Pullout */

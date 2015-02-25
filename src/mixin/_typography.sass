@@ -1,0 +1,30 @@
+// Typography Mixin
+
+@mixin text-align($position)
+  text-align: $position !important
+
+@mixin text-truncate()
+  display: block
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+@mixin link-color($color: blue)
+  color: $color
+  &:hover
+    color: darken($color, 10%)
+  &:focus,
+  &:active,
+  &.active
+    color: rgba($color, 0.5)
+  &.disabled
+    color: mix($color, #eee)
+
+@mixin heading-style($font-size: 16px, $font-weight: 300, $margin: 20px 0 10px 0)
+  display: block
+  padding: 0
+  margin: $margin
+  font-size: $font-size
+  font-weight: $font-weight
+  font-style: normal
+  line-height: 1.6

@@ -1,14 +1,21 @@
-/** Form **/
+/*
+ * Form
+ */
+
+@import ../variables
+@import ../mixin/form
+
 
 .label
-  +label($font-size, 5px 0 5px 0, 0 $space 0 $space)
+  +label-style($font-size, 5px 0)
+  margin: 0 $space
   font-family: $font-family
   font-style: $font-style
   font-weight: $font-weight
 
 .input
-  +input-shape($font-size, 4px 8px 4px 8px, $radius)
-  +input-color(transparent, $gray-darker)
+  +input-style($font-size, 4px 8px, $radius)
+  +input-color(transparent, $gray-darker, $gray)
   +placeholder-color($gray-light)
   font-family: $font-family
   font-style: $font-style
@@ -18,8 +25,8 @@
     width: 100%
 
 .select
-  +select-shape($font-size, 4px 8px 4px 8px, $radius)
-  +select-color(transparent, $gray-darker)
+  +select-style($font-size, 4px 8px, $radius)
+  +select-color(transparent, $gray-darker, $gray)
   font-family: $font-family
   font-style: $font-style
   font-weight: $font-weight

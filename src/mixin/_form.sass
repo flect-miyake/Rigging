@@ -1,0 +1,71 @@
+// Form mixin
+
+@mixin label-style($font-size: 14px, $padding: 5px 0)
+  display: inline-block
+  padding: $padding
+  margin: 0
+  line-height: 1.5
+
+@mixin input-style($font-size: 14px, $padding: 4px 8px, $radius: 4px)
+  display: inline-block
+  padding: $padding
+  margin: 0
+  border-radius: $radius
+  font-size: $font-size
+  line-height: 1.5
+  &.disabled
+    cursor: default
+
+@mixin input-color($background-color: #fff, $color: #333, $border-color: #aaa)
+  background: $background-color
+  color: $color
+  border-width: 1px
+  border-style: solid
+  border-color: $border-color
+  outline: none
+  &:hover,
+  &:focus,
+  &:active,
+  &.active
+    border-color: darken($border-color, 10%)
+  &.disabled
+    background: mix($background-color, #eee)
+    color: mix($color, #eee)
+    border-color: mix($border-color, #eee)
+
+@mixin placeholder-color($color)
+  &:-moz-placeholder
+    color:$color
+  &::-webkit-input-placeholder
+    color:$color
+
+@mixin select-style($font-size: 14px, $padding: 4px 8px, $radius: 4px)
+  -moz-appearance: none
+  -webkit-appearance: none
+  appearance: none
+  display: inline-block
+  padding: $padding
+  margin: 0
+  font-size: $font-size
+  line-height: 1.5
+  vertical-align: middle
+
+@mixin select-color($background-color: #fff, $color: #333, $border-color: #aaa)
+  -moz-appearance: none
+  -webkit-appearance: none
+  appearance: none
+  background: $background-color
+  color: $color
+  border-width: 1px
+  border-style: solid
+  border-color: $border-color
+  outline: none
+  &:hover,
+  &:focus,
+  &:active,
+  &.active
+    border-color: darken($border-color, 10%)
+  &.disabled
+    background: mix($background-color, #eee)
+    color: mix($color, #eee)
+    border-color: mix($border-color, #eee)

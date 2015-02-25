@@ -1,0 +1,26 @@
+// Utility mixin
+
+@mixin clearfix()
+  &:after
+    content: ""
+    clear: both
+    display: block
+
+@mixin margin-direction($size, $direction)
+  margin-#{$direction}: $size !important
+
+@mixin padding-direction($size, $direction)
+  padding-#{$direction}: $size !important
+
+@mixin divided-items($space: 0, $item-name: item)
+  > .#{$item-name}
+    display: inline-block
+    position: absolute
+    top: 0
+    z-index: 5
+    &.left
+      margin-left: $space
+      left: 0
+    &.right
+      margin-right: $space
+      right: 0

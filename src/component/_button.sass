@@ -1,7 +1,13 @@
-/** Button **/
+/*
+ * Button
+ */
+
+@import ../variables
+@import ../mixin/button
+
 
 .button
-  +button-shape($font-size, 4px 16px 4px 16px, $radius)
+  +button-style($font-size, 4px 16px, $radius)
   +button-color($gray, $white)
   font-family: $font-family
   font-style: $font-style

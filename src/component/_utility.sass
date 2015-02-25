@@ -1,0 +1,56 @@
+/*
+ * Utility
+ */
+
+@import ../variables
+@import ../mixin/utility
+
+
+/* Clearfix */
+.clearfix
+  +clearfix()
+
+
+/* Margins */
+.margin-none
+  margin: 0 !important
+
+.margin-top-none
+  +margin-direction(0, top)
+.margin-top-s
+  +margin-direction($space, top)
+.margin-top-m
+  +margin-direction(ceil($space-raw * 1.5)+px, top)
+.margin-top-l
+  +margin-direction(ceil($space-raw * 1.5)+px, top)
+
+.margin-bottom-none
+  +margin-direction(0, bottom)
+.margin-bottom-s
+  +margin-direction($space, bottom)
+.margin-bottom-m
+  +margin-direction(ceil($space-raw * 1.5)+px, bottom)
+.margin-bottom-l
+  +margin-direction(ceil($space-raw * 2)+px, bottom)
+
+/* Paddings */
+.padding-none
+  padding: 0 !important
+
+.padding-top-none
+  +padding-direction(0, top)
+.padding-top-s
+  +padding-direction($space, top)
+.padding-top-m
+  +padding-direction(ceil($space-raw * 1.5)+px, top)
+.padding-top-l
+  +padding-direction(ceil($space-raw * 1.5)+px, top)
+
+.padding-bottom-none
+  +padding-direction(0, bottom)
+.padding-bottom-s
+  +padding-direction($space, bottom)
+.padding-bottom-m
+  +padding-direction(ceil($space-raw * 1.5)+px, bottom)
+.padding-bottom-l
+  +padding-direction(ceil($space-raw * 2)+px, bottom)

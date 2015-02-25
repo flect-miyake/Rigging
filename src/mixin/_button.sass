@@ -1,0 +1,49 @@
+// Button mixin
+
+@mixin button-style($font-size: 16px, $padding: 4px 16px, $radius: 4px)
+  display: inline-block
+  padding: $padding
+  margin: 0
+  border-radius: $radius
+  font-size: $font-size
+  line-height: 1.5
+  text-align: center
+  cursor: pointer
+  &.disabled
+    cursor: default
+
+@mixin button-color($background-color: #999, $color: #fff)
+  background: $background-color
+  color: $color
+  border-width: 1px
+  border-style: solid
+  border-color: transparent
+  outline: none
+  &:hover
+    background: darken($background-color, 10%)
+  &:focus,
+  &:active,
+  &.active
+    background: rgba($background-color, 0.5)
+  &.disabled
+    background: mix($background-color, #ccc)
+    color: mix($color, #ccc)
+
+@mixin button-ghost-color($color: #999)
+  background: transparent
+  color: $color
+  border-width: 1px
+  border-style: solid
+  border-color: $color
+  outline: none
+  &:hover
+    color: darken($color, 10%)
+    border-color: darken($color, 10%)
+  &:focus,
+  &:active,
+  &.active
+    color: rgba($color, 0.5)
+    border-color: rgba($color, 0.5)
+  &.disabled
+    color: mix($color, #ccc)
+    border-color: mix($color, #ccc)

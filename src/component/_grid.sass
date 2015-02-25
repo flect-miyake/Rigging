@@ -1,22 +1,26 @@
-/** Grid **/
+/*
+ * Grid
+ */
 
+@import ../variables
+@import ../mixin/grid
+
+/* Container */
 .container
   +container($media-query-s, $media-query-m, $media-query-l)
 
+/* Grid */
 .grid-row
   +grid-row(12, $space-raw, grid)
-
-.grid-row-condensed
-  +grid-row(12, 0, grid)
-
-.grid-row,
-.grid-row-condensed
-  &.grid-row-wrap
+  &.condensed
+    +grid-row(12, 0, grid)
+  &.wrap
     flex-wrap: wrap
 
 
+/* Liquid Grid */
 @media #{$media-query-s}
-  .grid-row.grid-row-liquid
+  .grid-row.liquid
     flex-wrap: wrap
     .grid-1,
     .grid-2,
@@ -49,7 +53,7 @@
       margin-left: 0
 
 @media #{$media-query-m}
-  .grid-row.grid-row-liquid
+  .grid-row.liquid
     flex-wrap: wrap
     .grid-1,
     .grid-2,
@@ -86,5 +90,5 @@
       margin-left: 0
 
 @media #{$media-query-l}
-  .grid-row.grid-row-liquid
+  .grid-row.liquid
     flex-wrap: wrap
