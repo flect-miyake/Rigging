@@ -1,0 +1,188 @@
+/*
+  #overview
+  Grid
+ */
+
+@import ../variables
+@import ../mixin/grid
+
+
+/*
+  #styleguide
+  Container
+
+  Use .container for a responsive fixed width container.
+
+  ```
+  <div class="container">Container</div>
+  ```
+ */
+.container
+  +container($media-query-s, $media-query-m, $media-query-l)
+
+
+/*
+  #styleguide
+  Default Grid
+
+  ```
+  <div class="grid-row">
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+  </div>
+  <div class="grid-row">
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+  </div>
+  <div class="grid-row">
+    <div class="grid grid-4">grid-4</div>
+    <div class="grid grid-4">grid-4</div>
+    <div class="grid grid-4">grid-4</div>
+  </div>
+  <div class="grid-row">
+    <div class="grid grid-1">grid-1</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-6">grid-6</div>
+  </div>
+  ```
+ */
+
+/*
+  #styleguide
+  Wraped Grid
+
+  ```
+  <div class="grid-row wrap">
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-4">grid-4</div>
+    <div class="grid grid-4">grid-4</div>
+    <div class="grid grid-4">grid-4</div>
+    <div class="grid grid-1">grid-1</div>
+    <div class="grid grid-2">grid-2</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-6">grid-6</div>
+  </div>
+  ```
+ */
+.grid-row
+  +grid-row(12, $space-raw, grid)
+  &.condensed
+    +grid-row(12, 0, grid)
+  &.wrap
+    flex-wrap: wrap
+
+
+/*
+  #styleguide
+  Liquid Grid
+
+  ```
+  <div class="grid-row liquid">
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+    <div class="grid grid-3">grid-3</div>
+  </div>
+  <div class="grid-row liquid">
+    <div class="grid grid-4">grid-4</div>
+    <div class="grid grid-4">grid-4</div>
+    <div class="grid grid-4">grid-4</div>
+  </div>
+  <div class="grid-row liquid">
+    <div class="grid grid-6">grid-6</div>
+    <div class="grid grid-6">grid-6</div>
+  </div>
+  <div class="grid-row liquid">
+    <div class="grid grid-8 grid-offset-4">grid-8 offset-4</div>
+  </div>
+  ```
+ */
+@media #{$media-query-s}
+  .grid-row.liquid
+    flex-wrap: wrap
+    .grid-1,
+    .grid-2,
+    .grid-3,
+      flex: 0 0 50%
+      max-width: 50%
+    .grid-4,
+    .grid-5,
+    .grid-6,
+    .grid-7,
+    .grid-8,
+    .grid-9,
+    .grid-10,
+    .grid-11,
+    .grid-12
+      flex: 0 0 100%
+      max-width: 100%
+    .grid-offset-1,
+    .grid-offset-2,
+    .grid-offset-3,
+    .grid-offset-4,
+    .grid-offset-5,
+    .grid-offset-6,
+    .grid-offset-7,
+    .grid-offset-8,
+    .grid-offset-9,
+    .grid-offset-10,
+    .grid-offset-11,
+    .grid-offset-12
+      margin-left: 0
+
+@media #{$media-query-m}
+  .grid-row.liquid
+    flex-wrap: wrap
+    .grid-1,
+    .grid-2,
+    .grid-3,
+      flex: 0 0 25%
+      max-width: 25%
+    .grid-4,
+    .grid-5,
+    .grid-6
+      flex: 0 0 50%
+      max-width: 50%
+    .grid-7,
+    .grid-8,
+    .grid-9,
+      flex: 0 0 75%
+      max-width: 75%
+    .grid-10,
+    .grid-11,
+    .grid-12
+      flex: 0 0 100%
+      max-width: 100%
+    .grid-offset-1,
+    .grid-offset-2,
+    .grid-offset-3,
+    .grid-offset-4,
+    .grid-offset-5,
+    .grid-offset-6,
+    .grid-offset-7,
+    .grid-offset-8,
+    .grid-offset-9,
+    .grid-offset-10,
+    .grid-offset-11,
+    .grid-offset-12
+      margin-left: 0
+
+@media #{$media-query-l}
+  .grid-row.liquid
+    flex-wrap: wrap

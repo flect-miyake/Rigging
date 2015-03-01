@@ -1,0 +1,29 @@
+@import ../src/sass/variables
+@import ../src/sass/mixin/button
+
+.p-hero
+  display: block
+  position: relative
+  background: lighten($color-primary, 10%)
+  color: $white
+  width: 100%
+  padding: 80px 0
+
+  .title
+    display: block
+    position: relative
+    font-size: 64px
+    font-weight: 100
+    padding: 0
+
+  p
+    color: $white
+    font-size: 18px
+    font-weight: 100
+    margin-bottom: 30px
+
+  .button
+    +button-style(24px, 4px 24px, 4px)
+    +button-color($white, $color-primary)
+    font-weight: 100
+    width: 120px

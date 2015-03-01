@@ -1,0 +1,315 @@
+/*
+  #overview
+  Typography
+ */
+
+@import ../variables
+@import ../mixin/typography
+
+
+/*
+  #styleguide
+  Link Style
+
+  ```
+  <a href="#">Anchor</a>
+  <span class="link">Link</span>
+  <a href="#" class="disabled">Disabledr</a>
+  <span class="link disabled">Disabled Link</span>
+  ```
+ */
+a, .link
+  +link-color($color-primary)
+  font-weight: $font-weight
+  text-decoration: none
+  cursor: pointer
+  &.disabled
+    cursor: default
+
+
+/*
+  #styleguide
+  Text Colors
+
+  ```
+  <p class="text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-gray-darker">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-gray-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-gray-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-gray-lighter">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-success">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-warning">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p class="text-danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  ```
+ */
+.text-black
+  color: $black
+.text-white
+  color: $white
+.text-gray-darker
+  color: $gray-darker
+.text-gray-dark
+  color: $gray-dark
+.text-gray
+  color: $gray
+.text-gray-light
+  color: $gray-light
+.text-gray-lighter
+  color: $gray-lighter
+
+.text-primary
+  color: $color-primary
+.text-secondary
+  color: $color-secondary
+.text-success
+  color: $color-success
+.text-info
+  color: $color-info
+.text-warning
+  color: $color-warning
+.text-danger
+  color: $color-danger
+
+
+/*
+  #styleguide
+  Text Alignments
+
+  ```
+  <p class="text-left">Lorem ipsum dolor sit amet</p>
+  <p class="text-right">Lorem ipsum dolor sit amet</p>
+  <p class="text-center">Lorem ipsum dolor sit amet</p>
+  <p class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  ```
+ */
+.text-left
+  +text-align(left)
+.text-right
+  +text-align(right)
+.text-center
+  +text-align(center)
+.text-truncate
+  +text-truncate()
+
+
+/*
+  #styleguide
+  Headings
+
+  ```
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+  ```
+ */
+h1, .h1
+  +heading-style(ceil($font-size-raw * 2.0)+px, $font-weight, 20px 0 10px 0)
+h2, .h2
+  +heading-style(ceil($font-size-raw * 1.8)+px, $font-weight, 20px 0 10px 0)
+h3, .h3
+  +heading-style(ceil($font-size-raw * 1.6)+px, $font-weight, 20px 0 10px 0)
+h4, .h4
+  +heading-style(ceil($font-size-raw * 1.4)+px, $font-weight, 20px 0 10px 0)
+h5, .h5
+  +heading-style(ceil($font-size-raw * 1.2)+px, $font-weight, 10px 0 5px 0)
+h6, .h6
+  +heading-style(ceil($font-size-raw * 1.0)+px, $font-weight, 10px 0 5px 0)
+
+
+/*
+  #styleguide
+  Paragraph
+
+  ```
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  ```
+ */
+p
+  display: block
+  margin-bottom: ($space-raw * 0.5)+px
+  font-family: $font-family
+  font-style: $font-style
+  font-size: $font-size
+  font-weight: $font-weight
+  line-height: $line-height
+
+
+/*
+  #styleguide
+  Lead Paragraph
+
+  ```
+  <p class="lead">Lorem ipsum dolor sit amet</p>
+  ```
+ */
+.lead
+  display: block
+  font-family: $font-family
+  font-weight: inherit
+  font-size: ceil($font-size-raw * 1.1)+px
+  line-height: $line-height
+
+
+/*
+  #styleguide
+  Strong
+
+  ```
+  <p class="strong">Lorem ipsum dolor sit amet</p>
+  ```
+ */
+strong, .strong
+  font-weight: $font-weight-strong
+
+
+/*
+  #styleguide
+  Emphasis
+
+  ```
+  <p class="em">Lorem ipsum dolor sit amet</p>
+  ```
+ */
+em, .em
+  font-style: italic
+
+
+/*
+  #styleguide
+  Blockquote
+
+  ```
+  <div class="blockquote">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <cite>- Blockquote</cite>
+  </div>
+  ```
+ */
+blockquote, .blockquote
+  display: block
+  width: 100%
+  padding: 0 ($space-raw * 2)+px
+  p
+    display: block
+    color: $color-primary
+  cite
+    display: block
+    color: $color-primary
+    font-weight: $font-weight-strong
+    text-align: right
+
+
+/*
+  #styleguide
+  Pullout
+
+  ```
+  <p class="pullout">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  ```
+ */
+.pullout
+  display: block
+  padding: 0 0 0 ($space-raw * 2.0)+px
+  border-left: 4px solid $color-primary
+
+
+/*
+  #styleguide
+  Unordered List
+
+  ```
+  <ul>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>
+      Lorem ipsum dolor sit amet
+      <ul>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet</li>
+      </ul>
+    </li>
+  </ul>
+  ```
+ */
+
+/*
+  #styleguide
+  Ordered List
+
+  ```
+  <ol>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>
+      Lorem ipsum dolor sit amet
+      <ol>
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Lorem ipsum dolor sit amet</li>
+      </ol>
+    </li>
+  </ol>
+  ```
+ */
+ul, ol
+  li
+    margin: ($space-raw / 2)+px ($space-raw * 2)+px
+    font-family: $font-family
+    font-weight: $font-weight
+    font-style: $font-size
+    line-height: $line-height
+ul
+  list-style: disc
+ol
+  list-style-type: decimal
+
+
+/*
+  #styleguide
+  Definition List
+
+  ```
+  <dl>
+    <dt>Lorem ipsum dolor sit amet</dt>
+    <dd>Lorem ipsum dolor sit amet</dd>
+    <dt>Lorem ipsum dolor sit amet</dt>
+    <dd>Lorem ipsum dolor sit amet</dd>
+  </dl>
+  ```
+ */
+dl
+  dt
+    margin: ($space-raw / 2)+px ($space-raw * 2)+px 0 0
+    font-family: $font-family
+    font-weight: $font-weight-strong
+    font-style: $font-size
+    line-height: $line-height
+  dd
+    margin: 0 ($space-raw * 2)+px ($space-raw / 2)+px 0
+    font-family: $font-family
+    font-weight: $font-weight
+    font-style: $font-size
+    line-height: $line-height
+
+
+/* Horizontal Rule */
+/*
+  #styleguide
+  Horizontal Rule
+
+  ```
+  <hr />
+  ```
+ */
+hr
+  background: darken($gray-lighter, 10%)
+  width: 100%
+  height: 1px
+  border: 0

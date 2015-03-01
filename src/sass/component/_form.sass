@@ -1,0 +1,92 @@
+/*
+  #overview
+  Form
+ */
+
+@import ../variables
+@import ../mixin/form
+
+/*
+  #styleguide
+  Input
+
+  ```
+  <span class="label">Label</span>
+  <input type="text" class="input"></input>
+  <span class="label">Disabled</span>
+  <input type="text" class="input disabled" disabled="disabled"></input>
+
+  ```
+ */
+
+/*
+  #styleguide
+  Block Input
+
+  ```
+  <input type="text" class="input block"></input>
+  ```
+ */
+
+/*
+  #styleguide
+  Select
+
+  ```
+  <span class="label">Label</span>
+  <select class="select">
+    <option>Option1</option>
+    <option>Option2</option>
+    <option>Option3</option>
+  </select>
+
+  <span class="label">Disabled</span>
+  <select class="select disabled" disabled="disabled">
+    <option>Option1</option>
+    <option>Option2</option>
+    <option>Option3</option>
+  </select>
+  ```
+ */
+
+/*
+  #styleguide
+  Block Select
+
+  ```
+  <select class="select block">
+    <option>Option1</option>
+    <option>Option2</option>
+    <option>Option3</option>
+  </select>
+  ```
+ */
+
+
+.label
+  +label-style($font-size, 5px 0)
+  margin: 0 $space
+  font-family: $font-family
+  font-style: $font-style
+  font-weight: $font-weight
+
+.input
+  +input-style($font-size, 4px 8px, $radius)
+  +input-color(transparent, $gray-darker, $gray)
+  +placeholder-color($gray-light)
+  font-family: $font-family
+  font-style: $font-style
+  font-weight: $font-weight
+  &.block
+    display: block
+    width: 100%
+
+.select
+  +select-style($font-size, 4px 8px, $radius)
+  +select-color(transparent, $gray-darker, $gray)
+  font-family: $font-family
+  font-style: $font-style
+  font-weight: $font-weight
+  &.block
+    display: block
+    width: 100%

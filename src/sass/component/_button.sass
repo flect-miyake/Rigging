@@ -1,0 +1,104 @@
+/*
+  #overview
+  Button
+ */
+
+@import ../variables
+@import ../mixin/button
+
+
+/*
+  #styleguide
+  Inline Button
+
+  ```
+  <button class="button">Default</button>
+  <button class="button disabled">Disabled</button>
+  ```
+ */
+
+/*
+  #styleguide
+  Block Button
+
+  ```
+  <button class="button block">Default</button>
+  <button class="button block disabled">Disabled</button>
+  ```
+ */
+
+/*
+  #styleguide
+  Button Colors
+
+  ```
+  <button class="button button-primary">Primary</button>
+  <button class="button button-secondary">Secondary</button>
+  <button class="button button-success">Success</button>
+  <button class="button button-info">Info</button>
+  <button class="button button-warning">Warning</button>
+  <button class="button button-danger">Danger</button>
+  ```
+ */
+
+/*
+  #styleguide
+  Ghost Button
+
+  ```
+  <button class="button button-ghost">Default</button>
+  <button class="button button-ghost disabled">Disabled</button>
+  ```
+ */
+
+/*
+  #styleguide
+  Ghost Button Colors
+
+  ```
+  <button class="button button-ghost button-primary">Primary</button>
+  <button class="button button-ghost button-secondary">Secondary</button>
+  <button class="button button-ghost button-success">Success</button>
+  <button class="button button-ghost button-info">Info</button>
+  <button class="button button-ghost button-warning">Warning</button>
+  <button class="button button-ghost button-danger">Danger</button>
+  ```
+ */
+
+.button
+  +button-style($font-size, 4px 16px, $radius)
+  +button-color($gray, $white)
+  font-family: $font-family
+  font-style: $font-style
+  font-weight: $font-weight
+  &.button-ghost
+    +button-ghost-color($gray)
+
+  &.button-primary
+    +button-color($color-primary, $white)
+    &.button-ghost
+      +button-ghost-color($color-primary)
+  &.button-secondary
+    +button-color($color-secondary, $white)
+    &.button-ghost
+      +button-ghost-color($color-secondary)
+  &.button-success
+    +button-color($color-success, $white)
+    &.button-ghost
+      +button-ghost-color($color-success)
+  &.button-info
+    +button-color($color-info, $white)
+    &.button-ghost
+      +button-ghost-color($color-info)
+  &.button-warning
+    +button-color($color-warning, $white)
+    &.button-ghost
+      +button-ghost-color($color-warning)
+  &.button-danger
+    +button-color($color-danger, $white)
+    &.button-ghost
+      +button-ghost-color($color-danger)
+
+  &.block
+    display: block
+    width: 100%
