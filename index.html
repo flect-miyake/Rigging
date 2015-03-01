@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rigging</title>
 
   <link rel="stylesheet" href="dist/rigging.css">
@@ -9,36 +10,48 @@
 </head>
 <body>
 
-  <div class="p-hero">
-    <div class="container text-center">
-      <h1 class="title">Rigging</h1>
-      <p>Rigging is css components for development of web application UI rapidly.</p>
-      <a href="https://github.com/AKIRA-MIYAKE/Rigging" class="button">Github</a>
-      <a href="./styleguide" class="button">Docs</a>
-    </div>
-  </div>
+  <article>
+    <section>
+      <div class="p-hero text-center">
+        <div class="container">
+          <h1 class="title">Rigging</h1>
+          <p class="description margin-bottom-l">Rigging is a simple boilerplabe for development of web application UI rapidly.</p>
+          <a class="button" href="https://github.com/AKIRA-MIYAKE/Rigging">Github</a>
+          <a class="button" href="./styleguide/index.html">Docs</a>
+        </div><!-- /.container -->
+      </div><!-- /.home-header -->
+    </section>
 
-  <div class="container margin-top-l">
-    <div class="grid-row liquid">
-      <div class="grid text-center">
-        <h1>Features</h1>
-      </div>
-    </div>
-    <div class="grid-row liquid">
-      <div class="grid grid-4 text-center">
-        <h3>Simple</h3>
-        <p>Rigging has a basic style and simple grid system.</p>
-      </div>
-      <div class="grid grid-4 text-center">
-        <h3>Customizable</h3>
-        <p>It is customizable, can be used in a variety of projects.</p>
-      </div>
-      <div class="grid grid-4 text-center">
-        <h3>Automated</h3>
-        <p>Compiling Sass and create StyleGuide automatically with gulp.</p>
-      </div>
-    </div>
-  </div>
+    <section>
+      <div class="container margin-bottom-l">
+        <h2 class="text-center">Features</h2>
+        <div class="grid-row text-center">
+          <div class="grid grid-4">
+            <h3>Lightweight</h3>
+            <p>Rigging has a basic style and simple responsive grid system.</p>
+          </div>
+          <div class="grid grid-4">
+            <h3>Customizable</h3>
+            <p>By changing the variables, you can easily change the style.</p>
+          </div>
+          <div class="grid grid-4">
+            <h3>Automated</h3>
+            <p>Building Sass and adding prefixes CSS automatically with gulp.</p>
+          </div>
+        </div><!-- /.grid-row -->
+      </div><!-- /.container -->
+    </section>
+
+  </article>
+
+  <footer>
+    <div class="p-footer">
+      <div class="container">
+        <p>Released under the <a href="http://opensource.org/licenses/mit-license.php">MIT License</a>.</p>
+        <p>Created & Maintained by <a href="https://github.com/AKIRA-MIYAKE">AKIRA-MIYAKE</a></p>
+      </div><!-- /.container -->
+    </div><!-- /.p-footer -->
+  </footer>
 
 </body>
 </html>

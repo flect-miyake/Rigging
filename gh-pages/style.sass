@@ -5,25 +5,28 @@
   display: block
   position: relative
   background: lighten($color-primary, 10%)
-  color: $white
-  width: 100%
-  padding: 80px 0
+  padding: 120px 0
+  margin-bottom: 80px
 
   .title
-    display: block
-    position: relative
-    font-size: 64px
-    font-weight: 100
-    padding: 0
-
-  p
     color: $white
-    font-size: 18px
     font-weight: 100
-    margin-bottom: 30px
+    font-size: 56px
+
+  .description
+    color: $white
+    font-weight: 100
+    font-size: 18px
 
   .button
-    +button-style(24px, 4px 24px, 4px)
-    +button-color($white, $color-primary)
+    +button-style(18px, 4px 24px, 4px)
+    +button-color($white, lighten($color-primary, 10%))
+    width: 140px
     font-weight: 100
-    width: 120px
+
+.p-footer
+  display: block
+  position: relative
+  background: $gray-lighter
+  padding: 40px 0
+  margin-top: 80px
